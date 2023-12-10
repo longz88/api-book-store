@@ -4,6 +4,7 @@ const bookController = {
    addABook: async (req, res) => {
       try {
          const newBook = new Book(req.body);
+         const books = await Book.find();
          const savedBook = await newBook.save();
 
          if (req.body.author) {
